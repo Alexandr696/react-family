@@ -60,7 +60,9 @@
       width: 99.9%;
       background-color: #f9f9f9;
   }
-
+  .responsive-table tbody tr {
+    border-bottom: 1px solid grey;
+  }
   .responsive-table thead {
       display: table-header-group;
   }
