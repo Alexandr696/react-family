@@ -36,7 +36,7 @@
 .responsive-table td {
   display: block;
   padding: 1em;
-  text-align: center;
+  text-align: right;
   font-size: 0.9em;
 }
 
@@ -71,10 +71,7 @@
   .responsive-table th {
       display: table-cell;
       padding: 1em;
-      text-align: left;
-  }
-  .responsive-table td {
-    text-align: right;
+      text-align: center;
   }
   .responsive-table td:before {
       content: none;
