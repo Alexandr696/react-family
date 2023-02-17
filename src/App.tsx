@@ -8,14 +8,14 @@ function App() {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Column 2</th>
-                    <th>Column 3</th>
-                    <th>Column 4</th>
-                    <th>Column 5</th>
-                    <th>Column 6</th>
-                    <th>Column 7</th>
-                    <th>Column 8</th>
-                    <th>Column 9</th>
+                    <th>Имя</th>
+                    <th>Красота</th>
+                    <th>Ум</th>
+                    <th>Сексуальность</th>
+                    <th>Дурацкие вещи</th>
+                    <th>Запах</th>
+                    <th>Пердит</th>
+                    <th>Воняет</th>
                 </tr>
             </thead>
             <tbody>
