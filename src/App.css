@@ -29,6 +29,10 @@
   border-radius: 0 8px 8px 0;
 }
 
+.responsive-table tbody tr {
+  border-bottom: 1px solid grey;
+}
+
 .responsive-table td {
   display: block;
   padding: 1em;
