@@ -73,7 +73,9 @@
       padding: 1em;
       text-align: left;
   }
-
+  .responsive-table td {
+    text-align: right;
+  }
   .responsive-table td:before {
       content: none;
   }
