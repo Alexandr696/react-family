@@ -3,6 +3,9 @@
   --even: #f3f3f3;
 }
 
+.App {
+  padding: 0.5%;
+}
 .responsive-table {
   width: 99.9%;
   border-collapse: collapse;
