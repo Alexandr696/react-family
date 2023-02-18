@@ -11,7 +11,6 @@ function App() {
       <table className="responsive-table">
         <TableHeader header={tableHeader}/>
         {tableBody.map((body,index) => <TableBody body={body} header={tableHeader} key={index}/>)}
-        <TableBody body={tableBody[0]} header={tableHeader}/>
       </table>  
     </div>
   );

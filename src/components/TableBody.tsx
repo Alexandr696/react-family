@@ -6,7 +6,7 @@ interface bodyProps {
     header: IHeader
 }
 
-export function TableBody({body, header}: bodyProps) {
+export function TableBody({body, header}: bodyProps) {    
     return(
         <tbody>
                 <tr>
