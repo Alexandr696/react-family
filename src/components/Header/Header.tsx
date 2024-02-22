@@ -4,6 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ShowModelProps } from '../../types/data'
 import { Link } from 'react-router-dom'
 const logo = require('../../assets/logo.png')
+const person = require('../../assets/person.png')
 
 export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
   const [navigation, setNavigation] = useState([
@@ -83,7 +84,11 @@ export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
-                      <img className="h-8 w-8 rounded-full" src={logo} alt="" />
+                      <img
+                        className="h-8 w-8 rounded-full"
+                        src={person}
+                        alt=""
+                      />
                     </Menu.Button>
                   </div>
                   <Transition
