@@ -1,10 +1,9 @@
-import { Sidebar } from '../Sidebar'
+import { Table } from '../../Tables/Table'
 
 export const Product = () => {
   return (
     <>
-      <Sidebar />
-      <div className="text-center">Ptoduct</div>
+      <Table title="Список продукта"></Table>
     </>
   )
 }

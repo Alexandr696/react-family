@@ -8,22 +8,26 @@ const person = require('../../assets/person.png')
 
 export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
   const [navigation, setNavigation] = useState([
-    { name: 'Главная', href: '/', current: true },
+    { name: 'Главная', href: '/', current: false },
     { name: 'Продукт', href: '/product', current: false },
     { name: 'Разное', href: '/about', current: false },
     { name: 'Календарь', href: '/calendar', current: false },
   ])
-
   const ClassNames = (...classes: string[]) => {
     return classes.filter(Boolean).join(' ')
   }
 
   const ActiveMenu = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    console.log(e)
     const path = e.currentTarget.pathname
+
     setNavigation(
       [...navigation].map((item) => {
-        if (item.href === path) item.current = true
+        if (
+          '/react-family' +
+            (item.href === '/' ? item.href.replace('/', '') : item.href) ===
+          path
+        )
+          item.current = true
         else item.current = false
         return item
       })
