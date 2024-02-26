@@ -3,7 +3,7 @@ import { KeyProps } from '../../types/data'
 
 export const Main: FC<KeyProps> = ({ children }) => {
   return (
-    <main>
+    <main className="pt-16">
       <div>{children}</div>
     </main>
   )

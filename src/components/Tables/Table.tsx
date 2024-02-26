@@ -104,7 +104,7 @@ export const Table = ({ title }: any) => {
   }
 
   return (
-    <>
+    <div>
       <h1 className="mt-4 text-center font-bold text-zinc-400 mb-4">{title}</h1>
       <div className="overflow-x-auto">
         <TableTree
@@ -294,6 +294,6 @@ export const Table = ({ title }: any) => {
           </tbody>
         </TableTree>
       </div>
-    </>
+    </div>
   )
 }

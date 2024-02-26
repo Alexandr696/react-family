@@ -9,11 +9,11 @@ import { NotFoundPage } from '../components/Main/Pages/NotFoundPage'
 export const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/react-family/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="product" element={<Product />} />
-        <Route path="about" element={<About />} />
-        <Route path="calendar" element={<Calendar />} />
+        <Route path="/react-family/product/" element={<Product />} />
+        <Route path="/react-family/about/" element={<About />} />
+        <Route path="/react-family/calendar/" element={<Calendar />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
