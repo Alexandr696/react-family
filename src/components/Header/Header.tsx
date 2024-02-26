@@ -8,7 +8,7 @@ const person = require('../../assets/person.png')
 
 export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
   const [navigation, setNavigation] = useState([
-    { name: 'Главная', href: '/react-family/', current: false },
+    { name: 'Главная', href: '/react-family/', current: true },
     { name: 'Продукт', href: '/react-family/product/', current: false },
     { name: 'Разное', href: '/react-family/about/', current: false },
     { name: 'Календарь', href: '/react-family/calendar/', current: false },
