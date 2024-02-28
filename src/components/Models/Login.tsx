@@ -9,7 +9,7 @@ const people = [
 ]
 
 const layout = [
-  {
+  /*{
     for: 'firstname',
     name: 'Имя',
   },
@@ -20,14 +20,22 @@ const layout = [
   {
     for: 'surname',
     name: 'Отчество',
-  },
+  },*/
   {
     for: 'login',
-    name: 'login',
+    name: 'Логин',
+  },
+  {
+    for: 'password',
+    name: 'Пароль',
   },
 ]
 
-export const Login: FC<ModelProps> = ({ ShowModel, isOpen }: ModelProps) => {
+export const Login: FC<ModelProps> = ({
+  ShowModel,
+  inputChange,
+  isOpen,
+}: ModelProps) => {
   const [selected, setSelected] = useState(people[0])
   return (
     <>
@@ -78,9 +86,7 @@ export const Login: FC<ModelProps> = ({ ShowModel, isOpen }: ModelProps) => {
                             </label>
                             <div className="mt-2">
                               <input
-                                onChange={(e) => {
-                                  console.log(e)
-                                }}
+                                onChange={inputChange}
                                 type="text"
                                 name={item.for}
                                 id={item.for}
@@ -162,13 +168,20 @@ export const Login: FC<ModelProps> = ({ ShowModel, isOpen }: ModelProps) => {
                     </form>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="flex justify-between mt-4">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 float-right"
                       onClick={ShowModel}
                     >
-                      Регистрации
+                      Отмена
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 float-right"
+                      onClick={ShowModel}
+                    >
+                      Вход
                     </button>
                   </div>
                 </Dialog.Panel>

@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom'
 const logo = require('../../assets/logo.png')
 const person = require('../../assets/person.png')
 
-export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
+export const Header: FC<ShowModelProps> = ({
+  ShowModel,
+  isOpen,
+}: ShowModelProps) => {
   const [navigation, setNavigation] = useState([
     { name: 'Главная', href: '/react-family/', current: true },
     { name: 'Продукт', href: '/react-family/product/', current: false },
@@ -137,7 +140,7 @@ export const Header: FC<ShowModelProps> = ({ ShowModel }: ShowModelProps) => {
                               )}
                               onClick={ShowModel}
                             >
-                              Выход
+                              {isOpen ? 'Выход' : 'Вход'}
                             </a>
                           )}
                         </Menu.Item>

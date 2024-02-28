@@ -5,9 +5,10 @@ export interface KeyProps {
 }
 
 export interface ShowModelProps {
-  ShowModel: () => void
+  ShowModel: (e: any) => void
+  isOpen: boolean
 }
 
 export interface ModelProps extends ShowModelProps {
-  isOpen: boolean
+  inputChange: (e: any) => void
 }
