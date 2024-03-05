@@ -9,6 +9,7 @@ const UserContext = createContext<{
   login: string
   password: string
 } | null>(null)
+
 export const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isLogin, setIsLogin] = useState(true)
@@ -17,26 +18,29 @@ export const Layout = () => {
     password: '',
   })
 
-  const loginin = {
-    login: 'akado',
-    password: '123',
-  }
-
-  function inputChange(e: any) {
+  const inputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.name === 'login')
       setLoginInf({ ...loginInf, login: e.target.value })
     else setLoginInf({ ...loginInf, password: e.target.value })
   }
 
   function showModal(e: any) {
-    console.log(isOpen)
     if (isOpen) {
-      if (
-        loginInf.login === loginin.login &&
-        loginInf.password === loginin.password
-      ) {
-        setIsLogin(true)
+      // Опции для POST запроса
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Указываем, что отправляем JSON данные
+        },
+        body: JSON.stringify(loginInf), // Преобразуем данные в строку JSON
       }
+      // Выполняем POST запрос
+      fetch('http://localhost:5000/login', requestOptions)
+        .then((response) => response.json())
+        .then((data) => setIsLogin(data.isLogin))
+        .catch((error) =>
+          console.error('Ошибка при выполнении запроса:', error)
+        )
       setIsOpen(!isOpen)
     } else if (!isOpen && isLogin) {
       setIsLogin(false)
@@ -58,11 +62,13 @@ export const Layout = () => {
           isOpen={isOpen}
         />
         <Header ShowModel={showModal} isOpen={isLogin} />
+
         {isLogin && (
           <Main>
             <Outlet />
           </Main>
         )}
+
         <Footer />
       </UserContext.Provider>
     </>

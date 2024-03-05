@@ -9,18 +9,6 @@ const people = [
 ]
 
 const layout = [
-  /*{
-    for: 'firstname',
-    name: 'Имя',
-  },
-  {
-    for: 'lastname',
-    name: 'Фамилия',
-  },
-  {
-    for: 'surname',
-    name: 'Отчество',
-  },*/
   {
     for: 'login',
     name: 'Логин',

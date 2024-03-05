@@ -68,7 +68,10 @@ export const Calendar = () => {
             <div key={`empty-${index}`} className="border" />
           ))}
           {daysArray.map((day) => {
-            if (day === currentDate.getDate()) {
+            if (
+              month === currentDate.getMonth() &&
+              day === currentDate.getDate()
+            ) {
               return (
                 <div
                   key={day}
@@ -85,6 +88,9 @@ export const Calendar = () => {
             )
           })}
         </div>
+        <button className="mt-4 px-4 py-2 w-full bg-blue-500 text-white rounded">
+          Добавить событие
+        </button>
       </div>
     </div>
   )

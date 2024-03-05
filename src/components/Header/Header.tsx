@@ -13,7 +13,11 @@ export const Header: FC<ShowModelProps> = ({
   const [navigation, setNavigation] = useState([
     { name: 'Главная', href: '/react-family/', current: true },
     { name: 'Продукт', href: '/react-family/product/', current: false },
-    { name: 'Разное', href: '/react-family/about/', current: false },
+    {
+      name: 'Регистрация',
+      href: '/react-family/about/',
+      current: false,
+    },
     { name: 'Календарь', href: '/react-family/calendar/', current: false },
   ])
   const ClassNames = (...classes: string[]) => {
@@ -32,7 +36,7 @@ export const Header: FC<ShowModelProps> = ({
     )
   }
   return (
-    <div className="fixed w-screen">
+    <div className={`${isOpen ? 'fixed' : ''} w-screen`}>
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>

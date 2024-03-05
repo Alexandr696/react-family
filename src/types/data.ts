@@ -12,3 +12,14 @@ export interface ShowModelProps {
 export interface ModelProps extends ShowModelProps {
   inputChange: (e: any) => void
 }
+
+export interface LoginProps {
+  login: string | null
+  password: string | null
+}
+
+export interface LoginRegProps extends LoginProps {
+  firstName: string | null
+  lastName: string | null
+  fullName: string | null
+}
