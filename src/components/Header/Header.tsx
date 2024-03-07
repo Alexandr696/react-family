@@ -7,7 +7,7 @@ const logo = require('../../assets/logo.png')
 const person = require('../../assets/person.png')
 
 export const Header: FC<ShowModelProps> = ({
-  ShowModel,
+  OpenModel,
   isOpen,
 }: ShowModelProps) => {
   const [navigation, setNavigation] = useState([
@@ -36,7 +36,7 @@ export const Header: FC<ShowModelProps> = ({
     )
   }
   return (
-    <div className={`${isOpen ? 'fixed' : ''} w-screen`}>
+    <div className={`${isOpen ? 'fixed' : ''} w-screen z-50`}>
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>
@@ -108,32 +108,36 @@ export const Header: FC<ShowModelProps> = ({
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#1"
-                              className={ClassNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                        {isOpen && (
+                          <>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <a
+                                  href="#1"
+                                  className={ClassNames(
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-sm text-gray-700'
+                                  )}
+                                >
+                                  Ваш профиль
+                                </a>
                               )}
-                            >
-                              Ваш профиль
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#2"
-                              className={ClassNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <a
+                                  href="#2"
+                                  className={ClassNames(
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-sm text-gray-700'
+                                  )}
+                                >
+                                  Настройки
+                                </a>
                               )}
-                            >
-                              Настройки
-                            </a>
-                          )}
-                        </Menu.Item>
+                            </Menu.Item>
+                          </>
+                        )}
                         <Menu.Item>
                           {({ active }) => (
                             <a
@@ -142,7 +146,7 @@ export const Header: FC<ShowModelProps> = ({
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
                               )}
-                              onClick={ShowModel}
+                              onClick={OpenModel}
                             >
                               {isOpen ? 'Выход' : 'Вход'}
                             </a>

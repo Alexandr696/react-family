@@ -5,12 +5,14 @@ export interface KeyProps {
 }
 
 export interface ShowModelProps {
-  ShowModel: (e: any) => void
+  OpenModel: (e: any) => void
   isOpen: boolean
 }
 
 export interface ModelProps extends ShowModelProps {
   inputChange: (e: any) => void
+  CloseModel: (e: any) => void
+  LoginModel: (e: any) => void
 }
 
 export interface LoginProps {

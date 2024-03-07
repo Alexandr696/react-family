@@ -12,56 +12,60 @@ const UserContext = createContext<{
 
 export const Layout = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isLogin, setIsLogin] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
   const [loginInf, setLoginInf] = useState({
     login: '',
     password: '',
   })
-
   const inputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.name === 'login')
       setLoginInf({ ...loginInf, login: e.target.value })
     else setLoginInf({ ...loginInf, password: e.target.value })
   }
 
-  function showModal(e: any) {
-    if (isOpen) {
-      // Опции для POST запроса
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json', // Указываем, что отправляем JSON данные
-        },
-        body: JSON.stringify(loginInf), // Преобразуем данные в строку JSON
-      }
-      // Выполняем POST запрос
-      fetch('http://localhost:5000/login', requestOptions)
-        .then((response) => response.json())
-        .then((data) => setIsLogin(data.isLogin))
-        .catch((error) =>
-          console.error('Ошибка при выполнении запроса:', error)
-        )
-      setIsOpen(!isOpen)
-    } else if (!isOpen && isLogin) {
-      setIsLogin(false)
-      setLoginInf({
-        login: '',
-        password: '',
-      })
-    } else {
-      console.log(isOpen)
-      setIsOpen(!isOpen)
+  function closeModal(e: any) {
+    if (isOpen) setIsOpen(false)
+    if (isLogin) setIsLogin(false)
+  }
+  function openModal(e: any) {
+    if (!isLogin) setIsOpen(true)
+  }
+
+  function loginModal(e: any) {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Указываем, что отправляем JSON данные
+      },
+      body: JSON.stringify(loginInf), // Преобразуем данные в строку JSON
     }
+    //console.log(isLogin)
+    // Выполняем POST запрос
+    fetch('http://localhost:5000/login', requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result) {
+          setIsOpen(false)
+          setIsLogin(data.result)
+          setLoginInf({
+            login: '',
+            password: '',
+          })
+        }
+      })
+      .catch((error) => console.error('Ошибка при выполнении запроса:', error))
   }
   return (
     <>
       <UserContext.Provider value={{ login: '', password: '' }}>
         <Login
-          ShowModel={showModal}
+          LoginModel={loginModal}
+          CloseModel={closeModal}
+          OpenModel={closeModal}
           inputChange={inputChange}
           isOpen={isOpen}
         />
-        <Header ShowModel={showModal} isOpen={isLogin} />
+        <Header OpenModel={isLogin ? closeModal : openModal} isOpen={isLogin} />
 
         {isLogin && (
           <Main>
